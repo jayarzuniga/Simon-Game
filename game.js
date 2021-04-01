@@ -8,12 +8,23 @@ var started = false;
 
 var level = 0
 
+gameStart();
+
+function gameStart (){
 $(document).keydown(function(){
   if (!started) {
       $("#level-title").text("Level "+ level);
       nextSequence();
       started = true;}
   });
+
+$("h1").click(function(){
+    if (!started) {
+        $("#level-title").text("Level "+ level);
+        nextSequence();
+        started = true;}
+    });
+}
 
 $(".btn").click(function() {
 
@@ -49,10 +60,12 @@ function checkAnswer (currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
 
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press Any Key ot the Title to Restart");
+
     console.log ("wrong");
 
     startOver();
+
   }
 
 }
